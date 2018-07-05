@@ -6,7 +6,7 @@
   "main": "index.js",
   "dependencies": {
     "classnames": ">=1.1.4",
-    "react": ">=0.12",
+    "react": ">=15",
     "react-bootstrap": ">=0.18.0"
   },
   "devDependencies": {

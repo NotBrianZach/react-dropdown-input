@@ -10,6 +10,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 // var React = require('react/addons');
 var React = require("react");
+var createReactClass = require("create-react-class");
 var ReactBootstrap = require("react-bootstrap");
 // var joinClasses = require('react/lib/joinClasses')
 var cx = require("classnames");
@@ -44,9 +45,7 @@ var caseInsensIndexOf = function caseInsensIndexOf(list, str) {
   return lowerList.indexOf(str.toLowerCase());
 };
 
-var DropdownInput = React.createClass({
-  displayName: "DropdownInput",
-
+var DropdownInput = createReactClass({
   mixins: [BootstrapMixin, DropdownStateMixin],
 
   // propTypes: {

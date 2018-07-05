@@ -8,6 +8,7 @@
 
 // var React = require('react/addons');
 var React = require('react')
+var createReactClass = require('create-react-class')
 var ReactBootstrap = require('react-bootstrap')
 // var joinClasses = require('react/lib/joinClasses')
 var cx = require('classnames')
@@ -42,7 +43,7 @@ var caseInsensIndexOf = function(list, str) {
   return lowerList.indexOf(str.toLowerCase())
 }
 
-var DropdownInput = React.createClass({
+var DropdownInput = createReactClass({
   mixins: [BootstrapMixin, DropdownStateMixin],
 
   // propTypes: {
