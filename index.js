@@ -8,9 +8,10 @@
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var React = require("react/addons");
+// var React = require('react/addons');
+var React = require("react");
 var ReactBootstrap = require("react-bootstrap");
-var joinClasses = require("react/lib/joinClasses");
+// var joinClasses = require('react/lib/joinClasses')
 var cx = require("classnames");
 
 var BootstrapMixin = ReactBootstrap.BootstrapMixin;
@@ -48,29 +49,28 @@ var DropdownInput = React.createClass({
 
   mixins: [BootstrapMixin, DropdownStateMixin],
 
-  propTypes: {
-    pullRight: React.PropTypes.bool,
-    dropup: React.PropTypes.bool,
-    defaultValue: React.PropTypes.string,
-    menuClassName: React.PropTypes.string,
-    max: React.PropTypes.number,
-    maxText: React.PropTypes.string,
-    onChange: React.PropTypes.func,
-    onSelect: React.PropTypes.func,
-    navItem: React.PropTypes.bool,
-    options: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]).isRequired,
-    filter: React.PropTypes.func,
-    // the rest are to make eslint happy
-    id: React.PropTypes.string,
-    className: React.PropTypes.string,
-    bsSize: React.PropTypes.string
-  },
+  // propTypes: {
+  //   pullRight: React.PropTypes.bool,
+  //   dropup: React.PropTypes.bool,
+  //   defaultValue: React.PropTypes.string,
+  //   menuClassName: React.PropTypes.string,
+  //   max: React.PropTypes.number,
+  //   maxText: React.PropTypes.string,
+  //   onChange: React.PropTypes.func,
+  //   onSelect: React.PropTypes.func,
+  //   navItem: React.PropTypes.bool,
+  //   options: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]).isRequired,
+  //   filter: React.PropTypes.func,
+  //   // the rest are to make eslint happy
+  //   id: React.PropTypes.string,
+  //   className: React.PropTypes.string,
+  //   bsSize: React.PropTypes.string
+  // },
 
   getInitialState: function getInitialState() {
     return {
       value: this.props.defaultValue || "",
-      activeIndex: -1
-    };
+      activeIndex: -1 };
   },
 
   filteredOptions: function filteredOptions() {
@@ -91,8 +91,7 @@ var DropdownInput = React.createClass({
     var classes = {
       dropdown: true,
       open: this.state.open,
-      dropup: this.props.dropup
-    };
+      dropup: this.props.dropup };
     // you can provide a filter prop, which is a function(filterText, optionName, optionIndex) which should
     // return true to show option with the given name and index, given the input filterText.
     var filteredOptions = this.filteredOptions();
@@ -115,14 +114,15 @@ var DropdownInput = React.createClass({
           "aria-labelledby": this.props.id,
           pullRight: this.props.pullRight,
           key: 1,
-          onSelect: null },
+          onSelect: null
+        },
         filteredOptions.map(this.renderAsMenuItem),
         maxMenuItem
       );
     }
     return React.createElement(
       "div",
-      { className: joinClasses(this.props.className, cx(classes)) },
+      { className: cx(this.props.className, classes) },
       React.createElement(Input, _extends({}, this.props, {
         menuClassName: null,
         options: null,
@@ -138,7 +138,8 @@ var DropdownInput = React.createClass({
         onChange: this.handleInputChange,
         onKeyDown: this.handleKeyDown,
         dropup: null,
-        value: this.state.value })),
+        value: this.state.value
+      })),
       dropdown
     );
   },
@@ -149,7 +150,9 @@ var DropdownInput = React.createClass({
         part1 = item.slice(0, start),
         part2 = item.slice(start, end),
         part3 = item.slice(end);
-    var classes = cx({ active: this.state.activeIndex === index, disabled: disabled === true });
+    var classes = cx({
+      active: this.state.activeIndex === index,
+      disabled: disabled === true });
     if (disabled) {
       // don't highlight parts of disabled items, eg. the maxText
       part1 = item;
@@ -162,7 +165,8 @@ var DropdownInput = React.createClass({
         key: index,
         onSelect: this.handleOptionSelect.bind(this, index, item),
         className: classes,
-        onMouseEnter: this.handleMouseEnter.bind(this, index) },
+        onMouseEnter: this.handleMouseEnter.bind(this, index)
+      },
       part1,
       React.createElement(
         "b",
@@ -187,7 +191,6 @@ var DropdownInput = React.createClass({
     var numOptions = this.cappedLength(filteredOptions);
     var newName;
     switch (e.keyCode) {
-
       case 38:
         // up arrow
         if (this.state.activeIndex > 0) {
@@ -223,7 +226,6 @@ var DropdownInput = React.createClass({
         this.sendChange({ value: newName });
         this.setState({ value: newName, activeIndex: -1 });
         break;
-
     }
   },
 
@@ -256,9 +258,7 @@ var DropdownInput = React.createClass({
     if (this.props.onSelect) {
       this.props.onSelect(e);
     }
-  }
-
-});
+  } });
 
 module.exports = DropdownInput;
 
