@@ -13,13 +13,7 @@
     "babel": "^4.7.16",
     "babel-eslint": "^2.0.2",
     "eslint": "^0.18.0",
-    "eslint-plugin-react": "^2.0.2",
-    "jest-cli": "0.2.1",
-    "react-tools": "^0.13.1"
-  },
-  "jest": {
-    "scriptPreprocessor": "<rootDir>/jest-preprocessor.js",
-    "unmockedModulePathPatterns": ["<rootDir>/node_modules/react"]
+    "eslint-plugin-react": "^2.0.2"
   },
   "//": [
     "to run tests, I use node 0.10.x and jest-cli 0.2.1 as jest 0.4.0 doesn't work on my Mac OS with node v0.12.x",
